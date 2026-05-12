@@ -1,1 +1,131 @@
 //Bubble sort 
+
+#include<stdio.h>
+
+int main()
+{
+    int a[10], n, i, j, temp, flag;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    // Bubble Sort
+    for(i = 0; i < n - 1; i++)
+    {
+        flag = 0;
+
+        for(j = 0; j < n - 1 - i; j++)
+        {
+            if(a[j] > a[j + 1])
+            {
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+
+                flag = 1;
+            }
+        }
+
+        if(flag == 0)
+        {
+            break;
+        }
+    }
+
+    printf("Sorted elements:\n");
+
+    for(i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
+
+
+/*
+Bubble Sort in C
+
+This program sorts elements in ascending order using the Bubble Sort technique.
+
+Algorithm Idea
+
+Bubble Sort repeatedly compares adjacent elements and swaps them if they are in the wrong order.
+
+Compare two nearby elements
+
+Swap if left element is greater
+
+Largest element moves to the end after each pass
+
+Repeat until array becomes sorted
+
+
+Time Complexity
+
+Best Case: O(n) → already sorted (flag helps)
+
+Average Case: O(n²)
+
+Worst Case: O(n²)
+
+
+Key Variables
+
+temp → used for swapping
+
+flag → checks whether swapping happened
+
+flag == 0 → array already sorted, stop early
+
+
+Advantages
+
+Simple and beginner friendly
+
+Easy to implement
+
+Good for small datasets
+
+
+Disadvantages
+
+Slow for large data
+
+More comparisons and swaps
+
+
+Applications
+
+Educational purposes
+
+Small data sorting
+
+When simplicity is more important than efficiency
+
+
+Example
+
+Input:
+
+5
+5 1 4 2 3
+
+Output:
+
+1 2 3 4 5
+
+Logic Flow
+
+Compare → Swap → Largest element bubbles to end → Repeat
+
+Memory Trick
+
+“Large elements bubble up to the end like air bubbles in water.”*/
