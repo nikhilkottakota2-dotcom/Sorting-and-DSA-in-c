@@ -19,20 +19,21 @@ void enqueue(int x){
 		rear->next=newnode;
 		rear = newnode;
 		rear->next = front;
-		printf("%d Enqueued",rear->data);
+		printf("%d Enqueued\n",rear->data);
 	}
 }
 void dequeue(){
 	struct node *temp;
+	temp = front;
 	if(front==NULL&&rear==NULL){
 		printf("Queue is Empty\n");
 	}
 	else if(front==rear){
 		printf("%d dequeued\n",front->data);
 		front=rear=NULL;
+		free(temp);
 	}
 	else{
-		temp = front;
 		front=front->next;
 		rear->next=front;
 		printf("%d dequeued\n",temp->data);
@@ -43,11 +44,14 @@ void dequeue(){
 void display(){
 	struct node *temp;
 	temp=front;
+	if(front==NULL&&rear==NULL){
+		printf("Queue is Empty\n");
+	}
 	while(temp->next!=front){
 		printf("%d\t",temp->data);
 		temp = temp->next;
 	}
-	printf("\n");
+	printf("%d\n",temp->data);
 }
 
 int main(){
